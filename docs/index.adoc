@@ -1,0 +1,27 @@
+= Singularity Spark
+
+This is a relatively simple project to stand up and test Apache Spark.  The
+project will follow a simple path:
+
+==== Phase 1
+* stand up and use Spark on a single node
+* test the single instance against a specific data set
+* install a IPython notebook server and test against the single node Spark
+* test the IPython server agains the same data set
+* record the difference
+
+==== Phase 2
+* stand up and use Spark on a multi-node cluster
+* test the cluster against the same data set from Phase 1 with the same tests
+* install IPython server for use on the cluster
+* compare cluster performance agains cluster performance
+* compare IPython performance against spark-submit performance
+
+==== Phase 3
+* convert all the test developed above to Scala and run them
+* compare Scala performance to Python performance
+
+==== Phase 4
+* import the given data set into Accumulo and then test against said data
+set to see what performance differences there are
+
