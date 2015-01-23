@@ -1,0 +1,109 @@
+:source-highlighter: pygments
+
+= IPython Notebook Server Setup
+
+== Description
+
+These instructions will document how to setup a IPython web-based notebook
+server that uses PySpark on a hadoop cluster.
+
+The bulk of the instructions are shamelessly stolen and modified from:
+http://blog.cloudera.com/blog/2014/08/how-to-use-ipython-notebook-with-apache-spark/.
+
+=== Notes
+
+For this document $ will indicate the start of a command line and what 
+immediately follows is what needs to be entered.
+
+== Initial Setup 
+
+=== 1. Create an IPython profile
+
+----
+$ ipython profile create pyspark
+----
+
+This will create folder ~/.ipython/.profile_pyspark/.
+
+=== 2. Edit ~/.ipython/profile_pyspark/ipython_notebook_config.py
+
+In this file the following lines will need to be changed or added:
+
+----
+c = get.config()
+
+c.NotebookApp.ip = "*"
+c.NotebookApp.open_browser = False
+
+# The port number 8081 does not conflict with any CDH ports
+# on the nodes and clusters being used.
+c.NotebookApp.port = 8081
+----
+
+=== 3. Create password
+
+If you want a password:
+
+----
+$ python -c 'from IPython.lib import passwd; print passwd()' > ~/.ipython/profile_pyspark/nbpasswd.txt
+----
+
+and then edit the file from step 2 to include the following changes:
+
+----
+PWDFILE='~/.ipython/profile_pyspark/nbpasswd.txt'
+c.NotebookApp.password = open(PWDFILE).read().strip()
+----
+
+=== 4. Add 00-pyspark-setup.py
+
+Create the file: ~/.ipython/profile_pyspark/startup/00-pyspark-setup.py and the 
+following lines:
+
+----
+import os
+import sys
+
+spark_home = os.environ.get("SPARK_HOME", None)
+if not spark_home:
+    raise ValueError("SPARK_HOME environment vairable is not set.")
+
+sys.path.insert(0, os.path.join(spark_home, "python")
+# the following needs to point to the correct py4j file
+sys.path.insert(0. os.path.join(spark_home, 'python/lib/py4j-0.8.2.1-src.zip'))
+
+execfile(os.path.join(spark_home, 'python/pyspark/shell.py'))
+----
+
+=== 5. Update ~/.bashrc
+
+Update the ~/.bashrc file to include the following lines:
+
+----
+# for the CDH-installed Spark
+export SPARK_HOME='/opt/cloudera/parcels/CDH/lib/spark'
+
+# options for pyspark
+MASTER='--master yarn'
+MODE='--deploy-mode client'
+NUMEX='--num-executors 24'
+MEMEX='--executor-memory 2g'
+CORES='--executor-cores 5'
+
+# All the options in one variable, this is used by IPython
+export PYSPARK_SUBMIT_ARGS='${MASTER NODE NUMEX MEMEX CORES}'
+----
+
+The above options will need to added or changed based on the configuration
+needed for the cluster the server is running from.  This is a draft and will
+be updated when the correct parameters are implemented.
+
+== Running the Server
+
+The following will start the server:
+
+----
+$ ipython notebook --profile=pyspark
+----
+
+
