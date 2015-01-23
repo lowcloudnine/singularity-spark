@@ -7,16 +7,16 @@ This is a list of the software used for testing on the single node instance.
 [width="25%", options="header,footer"]
 |=====================================
 | Name                 | Version
-| System
+| System               |
 | Linux Kernel         | 2.6.32
 | Cloudera             | CDH-5.2.0-1
 | Spark                | 1.1.0
-| Languages
+| Languages            |
 | Scala                | 2.10.4
 | Java                 | 1.7.0_71
 | Python Distro        | Anaconda 2.1.0 64-bit
 | Python               | 2.7.9
-| Python Libraries
+| Python Libraries     |
 | IPython              | 2.3.1
 |==================================== 
 
