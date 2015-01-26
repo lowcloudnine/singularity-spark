@@ -7,6 +7,7 @@ project will follow a simple path:
 * stand up and use Spark on a single node
 * test the single instance against a specific data set
 * install a IPython notebook server and test against the single node Spark
+  - link:ipython_setup.adoc[Documentation] for set up of IPython Server.
 * test the IPython server agains the same data set
 * record the difference
 
