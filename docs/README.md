@@ -10,6 +10,6 @@ need to convert formats.
 * [Main Page](index.adoc)
 * [IPython Server Setup](ipython_setup.adoc)
 * [IPython Server Post Setup](ipython_post_setup.adoc)
-* [Software Versions](single_node_sw.adoc)
+* [Software Versions](sw_inventory.adoc)
 
 

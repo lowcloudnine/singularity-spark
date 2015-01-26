@@ -1,0 +1,21 @@
+= IPython Notebook Server Post Setup
+
+== Description
+
+These instructions are for adding some bells and whistles once the initial
+set up a IPython Notebook Server is completed.  Instead of process that needs
+to be completed from beginning to end these will be more of a series of notes
+that can be completed in any order.
+
+== MathJax
+
+==== What is MathJax
+
+From the MathJax link:http://mathjax.org[web site]:
+
+[quote]
+----
+MathJax is an open source JavaScript display engine for mathematics that works
+in all browsers.
+----
+
