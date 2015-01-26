@@ -5,7 +5,7 @@
 These instructions are for adding some bells and whistles once the initial
 set up a IPython Notebook Server is completed.  Instead of process that needs
 to be completed from beginning to end these will be more of a series of notes
-that can be completed in any order.
+thasl;dkfjt can be completed in any order.
 
 == MathJax
 
@@ -61,5 +61,21 @@ the SymPY link:http://docs.sympy.org/latest/tutorial/index.html[tutorial] are:
 sympy.expand((cos(x) + sin(x))**2)
 sympy.diff(exp(x**2), x)
 ----
+
+== Cell Line Numbers
+
+In small/short cells line numbers are relatively un-important.  However,
+as algorithms increase in complexity and/or collaboration increases 
+the need for line numbers in individual cells will become obvious.  To turn 
+on line numbers in all cells on a IPython Notebook Server insert the
+following line into ~/.ipython/profile_xxxx/static/custom/custom.js:
+
+----
+IPython.Cell.options_default.cm_config.lineNumbers = true;
+----
+
+If the user would like to toogle line numbers in an individual cell they 
+can do so by pressing Esc and the l (lower case L) or ctrl-M L.  These tips
+are on link:http://stackoverflow.com/questions/20197471/how-to-display-line-numbers-in-ipython-notebook-code-cell-by-default[stackoverflow].
 
 

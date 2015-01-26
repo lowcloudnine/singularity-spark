@@ -9,6 +9,8 @@ server that uses PySpark on a hadoop cluster.
 
 The bulk of the instructions are shamelessly stolen and modified from:
 http://blog.cloudera.com/blog/2014/08/how-to-use-ipython-notebook-with-apache-spark/.
+Full instruction for setting up and working with IPython are at:
+http://ipython.org/ipython-doc/2/install/install.html.
 
 === Notes
 
