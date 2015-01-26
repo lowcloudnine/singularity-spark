@@ -17,3 +17,45 @@ From the MathJax link:http://mathjax.org[web site]:
 MathJax is an open source JavaScript display engine for mathematics that works
 in all browsers.
 
+Once it is installed latex formulas and SymPy output will render as
+mathematical formulas in the browser.  Experence with VMs on AWS has 
+demonstrated that using MathJax from the CDN is not reliable or effect.
+It has not been determined if this is a firewall issue or user error.  The
+best way to use MathJax on the previously installed IPython Server is to
+install a copy locally.  Version 2.4 has been installed and does work.
+To install it locally follow the instructions at link:http://ipython.org/ipython-doc/2/install/install.html?highlight=mathjax#mathjax[ipython.org].
+
+After it is installed check it by entering any LaTeX math formulas as markdown
+in a notebook cell.  Such as:
+
+\begin{align} \nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} & = \frac{4\pi}{c}\vec{\mathbf{j}} \\ \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\ \nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\ \nabla \cdot \vec{\mathbf{B}} & = 0 \end{align}
+
+Using SymPy (Python's symbolic calcuation library) requires the following 
+lines to render the results as formulas:
+
+----
+from __future__ import division
+
+%pylab inline
+import sympy
+sympy.init_printing()
+----
+
+After these statements are executed in the browser SymPy symbol's need to be 
+set up with code similar to:
+
+----
+x, y, z, t = sympy.symbols('x y z t')
+k, m, n = sympy.symbols('k m n', integer=True)
+f, g, h = symbols('f g h', cls=Function)
+----
+
+Finally, an inputted formula will calculate and display.  Some examples from
+the SymPY link:http://docs.sympy.org/latest/tutorial/index.html[tutorial] are:
+
+----
+expand((cos(x) + sin(x))**2)
+diff(exp(x**2), x)
+----
+
+
