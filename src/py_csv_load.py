@@ -58,7 +58,7 @@ def global_mean_temp(year):
 def main():
     """ Run the script as a stand alone application. """
     mean_temps = [[year, global_mean_temp(year)] 
-                    for year in xrange(1929, 1949 + 1)] 
+                    for year in xrange(1929, 1935 + 1)] 
     for mean_temp in mean_temps:
         print("{}:  {}".format(mean_temp[0], mean_temp[1])) 
 
