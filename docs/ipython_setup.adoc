@@ -84,7 +84,7 @@ Update the ~/.bashrc file to include the following lines:
 export SPARK_HOME='/opt/cloudera/parcels/CDH/lib/spark'
 
 # options for pyspark
-MASTER='--master yarn'
+MASTER='--master spark://your.spark.server:7077 '  # make sure port 7077 is open
 MODE='--deploy-mode client'
 NUMEX='--num-executors 24'
 MEMEX='--executor-memory 2g'
@@ -106,4 +106,18 @@ The following will start the server:
 $ ipython notebook --profile=pyspark
 ----
 
+Once the above command works for starting the IPython Server, a better way might 
+be to create a bash script such as:
 
+----
+#!/bin/bash
+
+nohup ipython notebook --profile-pyspark &
+
+----
+
+== Post Set Up
+
+An IPython notebook server should be set up and running at this point and is fully functional.  Some
+link:ipython_post_setup.adoc[tips and tricks] are available to better understand how the server works 
+and to increase usability.
