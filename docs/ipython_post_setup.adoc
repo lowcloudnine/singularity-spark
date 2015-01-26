@@ -14,8 +14,6 @@ that can be completed in any order.
 From the MathJax link:http://mathjax.org[web site]:
 
 [quote]
-----
 MathJax is an open source JavaScript display engine for mathematics that works
 in all browsers.
-----
 
