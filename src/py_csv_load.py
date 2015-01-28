@@ -18,6 +18,7 @@ from __future__ import print_function
 # ---- Standard Libraries
 import csv
 import StringIO
+import time
 
 # ---- PySpark Libraries
 import pyspark
@@ -57,10 +58,22 @@ def global_mean_temp(year):
 
 def main():
     """ Run the script as a stand alone application. """
+    # ---- First Decade 
+    start = time.time() 
     mean_temps = [[year, global_mean_temp(year)] 
-                    for year in xrange(1929, 1935 + 1)] 
+                    for year in xrange(1929, 1939 + 1)] 
     for mean_temp in mean_temps:
         print("{}:  {}".format(mean_temp[0], mean_temp[1])) 
+    
+    print("\nFirst decade took: {} seconds.".format(round(time.time() - start, 2)))
+
+    # ---- Last Year
+    start = time.time()
+    year = 2009
+    mean_temp = global_mean_temp(year)
+    print("{}:  {}".format(year, mean_temp)) 
+    
+    print("\nLast Year took: {} seconds.".format(round(time.time() - start, 2)))
 
 # ----------------------------------------------------------------------------
 #    Name 
