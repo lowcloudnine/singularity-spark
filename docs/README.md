@@ -11,5 +11,5 @@ need to convert formats.
 * [IPython Server Setup](ipython_setup.adoc)
 * [IPython Server Post Setup](ipython_post_setup.adoc)
 * [Software Versions](sw_inventory.adoc)
-
+* [Data Sets](data_sets.adoc)
 
