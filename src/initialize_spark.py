@@ -28,9 +28,9 @@ def get_sc(app_name="My App", memory="2G", cores="32"):
 
     """
     conf = SparkConf()
-    conf.setMaster("spark://c2-master.ec2.internal:7077")
+    # conf.setMaster("spark://c2-master.ec2.internal:7077")
     conf.setAppName(app_name)
-    conf.set("spark.executor.memory", memory)
-    conf.set("spark.cores.max", cores)
+    # conf.set("spark.executor.memory", memory)
+    # conf.set("spark.cores.max", cores)
 
     return SparkContext(conf=conf)
