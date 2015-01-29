@@ -5,14 +5,14 @@ project will follow a simple path:
 
 ==== Phase 1: A Working Spark
 * stand up and use Spark on a single node
-  -  currently this is done using spark-submit, importing pyspark.SparkContext and initializing sc as sc = pyspark.SparkContext(conf=pyspark.SparkConf()) without any set up or options.  The file initialize_spark.py provides a decent example of how to initialzie a sc with options.  However, it doesn't work currently as the system admins haven't been asked to open port 7077 for access to the spark server.
-  -  Ports needed on a VM for experimentation:
-     + 7077 (Spark port)
-     + 8081 (ipython and doesn't conflict w/ Hadoop stack)
-     + 8000 (opened for http services, i.e. python -m SimpleHTTPServer)
+  **  currently this is done using spark-submit, importing pyspark.SparkContext and initializing sc as sc = pyspark.SparkContext(conf=pyspark.SparkConf()) without any set up or options.  The file initialize_spark.py provides a decent example of how to initialzie a sc with options.  However, it doesn't work currently as the system admins haven't been asked to open port 7077 for access to the spark server.
+  **  Ports needed on a VM for experimentation:
+     *** 7077 (Spark port)
+     *** 8081 (ipython and doesn't conflict w/ Hadoop stack)
+     *** 8000 (opened for http services, i.e. python -m SimpleHTTPServer)
 * test the single instance against a specific link:data_sets.adoc[data set]
 * install a IPython notebook server and test against the single node Spark
-  - link:ipython_setup.adoc[Documentation] for set up of IPython Server.
+  ** link:ipython_setup.adoc[Documentation] for set up of IPython Server.
 * test the IPython server agains the same data set
 * record the difference
 
