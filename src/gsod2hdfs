@@ -1,0 +1,91 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+Purpose
+-------
+
+To copy the Global Summary of the Day (gsod) data to HDFS from a local file
+system.  It is assumed by the program the gsod data is in the user home
+directory under weather.
+
+"""
+# ----------------------------------------------------------------------------
+#    Imports
+# ----------------------------------------------------------------------------
+
+
+import argparse
+import os
+import subprocess
+import sys
+
+# ----------------------------------------------------------------------------
+#    Functions
+# ----------------------------------------------------------------------------
+
+
+def parse_args():
+    """ Parse the command line arguments into usable data. """
+    # Get the arguments from the command line
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-u", "--user", type=str,
+                        help="user name for the directory, " + \
+                             "i.e./home/schiefjm where schiefjm is the " + \
+                             "user name")
+    parser.add_argument("start_year", type=int)
+    parser.add_argument("stop_year", type=int)
+    args = parser.parse_args()
+
+    # Check the inputs for correctness
+    start_year = args.start_year
+    stop_year = args.stop_year
+    user_name = args.user
+
+    if start_year > stop_year:
+        start_year, stop_year = stop_year, start_year
+
+    if start_year < 1929:
+        print("The start year must be greater than or equal to 1929.")
+
+    if stop_year > 2009:
+        print("The ending year must be less than or equal to 2009.")
+
+    # Create a tuple of values to return and return them
+    return user_name, start_year, stop_year
+
+
+def import_a_year(user_name, year):
+    """ For a given year moves the gsod data into hdfs. """
+    directory = "weather/gsod/" + str(year)
+    local = "/home/" + user_name + "/"
+    hdfs = "/user/" + user_name + "/"
+    print("Starting to move: " + str(year))
+    done = subprocess.call(['hadoop', 'fs',
+                            '-copyFromLocal',
+                            local + directory,
+                            hdfs + directory])
+    if done == 0:
+        print("{} data has been moved to HDFS.".format(year))
+    else:
+        print("*" * 40)
+        print("{} data failed to transfer, please check available logs.")
+        print("*" * 40)
+
+# ----------------------------------------------------------------------------
+#    Main
+# ----------------------------------------------------------------------------
+
+
+def main():
+    """ Runs the script as a stand alone application. """
+    user_name, start_year, stop_year = parse_args()
+    for year in range(start_year, stop_year + 1):
+        import_a_year(user_name, year)
+
+# ----------------------------------------------------------------------------
+#    Name
+# ----------------------------------------------------------------------------
+
+
+if __name__ == "__main__":
+    main()
