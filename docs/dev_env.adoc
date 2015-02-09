@@ -1,0 +1,36 @@
+== Vim
+
+http://vim.spf13.com/ best vim bundle I've seen, yet.  Installs stuff that I find annoying but ultimately might be useful.
+A couple of hints for the annoying things:
+
+,ig turns off gray tab columns (from:  https://github.com/spf13/spf13-vim/issues/169)
+other hints at: https://github.com/spf13/spf13-vim/issues/487
+
+== PuTTY
+
+PuTTY Tray is a better PuTTY.
+http://superuser.com/questions/640225/putty-solarized-the-manual-way for the colors for a Solarized PuTTY terminal.
+Details below:
+
+Default Foreground: 131, 148, 150
+Default Bold Foreground: 147, 161, 161
+Default Background: 0, 43, 54
+Default Bold Background: 7, 54, 66
+Cursor Text: 0, 43, 54
+Cursor Colour: 131, 148, 150
+ANSI Black: 7, 54, 66
+ANSI Black Bold: 0, 43, 54
+ANSI Red: 220, 50, 47
+ANSI Red Bold: 203, 75, 22
+ANSI Green: 133, 153, 0
+ANSI Green Bold: 88, 110, 117
+ANSI Yellow: 181, 137, 0
+ANSI Yellow Bold: 101, 123, 131
+ANSI Blue: 38, 139, 210
+ANSI Blue Bold: 131, 148, 150
+ANSI Magenta: 211, 54, 130
+ANSI Magenta Bold: 108, 113, 196
+ANSI Cyan: 42, 161, 152
+ANSI Cyan Bold: 147, 161, 161
+ANSI White: 238, 232, 213
+ANSI White Bold: 253, 246, 227
