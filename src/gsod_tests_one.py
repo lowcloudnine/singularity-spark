@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-""" 
+"""
 Purpose
 -------
 
@@ -30,13 +30,13 @@ dir_name = "user/schiefjm/weather/gsod/"
 data_source = server_name + dir_name
 
 # ----------------------------------------------------------------------------
-#    Functions 
+#    Functions
 # ----------------------------------------------------------------------------
 
 
 def global_mean_temp(year):
     """ Calcuates the mean temperature from the mean temperature from all
-    the observations for a given year from 1929 to 2009 inclusive. 
+    the observations for a given year from 1929 to 2009 inclusive.
 
     """
     obs_rdd = sc.textFile(server_name + dir_name + str(year))
@@ -51,7 +51,7 @@ def global_mean_temp(year):
 def global_max_temp(year):
     """ Finds the maximum temperature from the maximum temperatuers from all
     the observations for a given year from 1929 to 2009 inclusive.
-    
+
     """
     return sc.textFile(server_name + dir_name + str(year))\
                       .filter(lambda line: "STN" not in line)\
@@ -63,7 +63,7 @@ def global_max_temp(year):
 def global_min_temp(year):
     """ Finds the minimum temperature from the minimum temperatures from all
     the observations for a given year from 1929 to 2009 inclusive.
-    
+
     """
     return sc.textFile(server_name + dir_name + str(year))\
                       .filter(lambda line: "STN" not in line)\
@@ -80,6 +80,7 @@ def global_summary(year):
     using the individual functions above.
 
     """
+    print(dir_name)
     obs_rdd = sc.textFile(server_name + dir_name + str(year))\
                          .filter(lambda line: "STN" not in line)
     num_obs = obs_rdd.count()
@@ -94,11 +95,11 @@ def global_summary(year):
     min_temp = obs_rdd.map(lambda line: float(line.split()[18].strip("*")))\
                        .filter(lambda x: x != 999.9)\
                        .reduce(lambda x, y: x if x < y else y)
-    
+
     return [year, mean_temp, min_temp, max_temp, num_obs]
 
 # ----------------------------------------------------------------------------
-#    Main 
+#    Main
 # ----------------------------------------------------------------------------
 
 
@@ -106,38 +107,38 @@ def main():
     """ Run the script as a stand alone application. """
     start_year = 1929
     stop_year = 1929
-    
+
     print("\n")
-    # ---- Individual Functions 
+    # ---- Individual Functions
     start = time.time()
-    temperatures = [[year, 
+    temperatures = [[year,
                      global_mean_temp(year),
                      global_min_temp(year),
-                     global_max_temp(year)] 
-                       for year in xrange(start_year, stop_year + 1)] 
-    
+                     global_max_temp(year)]
+                       for year in xrange(start_year, stop_year + 1)]
+
     for year, mean, min, max in temperatures:
         print("{}\t{:.1f}\t{:.1f}\t{:.1f}\t{}"\
                 .format(year, mean[0], min, max, mean[1]))
-    
+
     print("\nUsing individual functions took {} seconds."\
             .format(round(time.time() - start, 2)))
-    
+
     print("\n")
-    # ---- Single Function 
+    # ---- Single Function
     start = time.time()
-    temperatures = [global_summary(year) 
-                       for year in range(start_year, stop_year + 1)] 
-    
+    temperatures = [global_summary(year)
+                       for year in range(start_year, stop_year + 1)]
+
     for year, mean, min, max, num_obs in temperatures:
         print("{}\t{:.1f}\t{:.1f}\t{:.1f}\t{}"\
                 .format(year, mean, min, max, num_obs))
-    
+
     print("\nUsing a combined function took {} seconds."\
             .format(round(time.time() - start, 2)))
 
 # ----------------------------------------------------------------------------
-#    Name 
+#    Name
 # ----------------------------------------------------------------------------
 
 
