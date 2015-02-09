@@ -1,0 +1,39 @@
+#-----------------------------------------------------------------------------
+# Python Environment Settings
+#-----------------------------------------------------------------------------
+
+# Anaconda 2.1.0 Python 2.7 Settings
+export PATH="/usr/local/anaconda/bin":$PATH
+
+# Scala 2.10.4 Settings
+export PATH="/usr/local/scala/bin":$PATH
+export SCALA_HOME="/usr/local/scala/bin"
+
+#-----------------------------------------------------------------------------
+# Cloudera/Hadoop/Spark/PySpark Settings
+#-----------------------------------------------------------------------------
+
+# Hadoop alias
+alias hfs='hdfs dfs'
+export HADOOP_CONF_DIR=/etc/hadoop/conf
+
+# Spark Configurations
+export SPARK_HOME='/opt/cloudera/parcels/CDH/lib/spark'
+export PYSPARK_PYTHON='/usr/local/anaconda/bin/python'
+export SPARK_YARN_USER_ENV="$PYSPARK_PYTHON"
+export SPARK_MASTER_IP="not ip but machine name, ie. c5-master.internal""
+export SPARK_MASTER_PORT="7077"
+# for custom spark logging levels, etc.
+export SPARK_CONF_DIR="/path/to/.spark/conf/"
+
+# MASTER="--master spark://master_spark_machine_name:7077 "
+MASTER="--master local[*] "
+CLASS="--deploy-mode client "
+NAME="--name IPY_NB_SPARK "
+MEMORY="--driver-memory 2g "
+EXMEM="--executor-memory 2g "
+CORES="--driver-cores 4 "
+
+# export PYSPARK_SUBMIT_ARGS="$MASTER $CLASS $NAME $MEMORY $EXMEM $CORES"
+export PYSPARK_SUBMIT_ARGS="$MASTER"
+
