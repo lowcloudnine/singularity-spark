@@ -83,6 +83,7 @@ Update the ~/.bashrc file to include the following lines:
 
 ----
 # for the CDH-installed Spark
+export PYSPARK_PYTHON='/usr/local/anaconda/bin/python'
 export SPARK_HOME='/opt/cloudera/parcels/CDH/lib/spark'
 
 # options for pyspark
