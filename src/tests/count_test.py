@@ -7,29 +7,23 @@ from __future__ import print_function
 from future.builtins import (bytes, str, open, super, range,
                       zip, round, input, int, pow, object)
 
-import sys
-if sys.version_info.major == 2:
-    # in Python 2 cPickle is much faster than pickle but doesn't deal w/ unicode
-    import cPickle as pickle
-else:
-    # Python 3 loads the faster pickle by default if it's available
-    import pickle
-
+import cPickle as pickle
 import random
 import time
 
-import initialize_spark
-sc = initialize_spark.get_sc()
+import lib.initialize_spark
+sc = lib.initialize_spark.get_sc()
+
+import lib.header
+the_head = lib.header.create_header(sc)
 
 def obs_count(year):
     """ Returns the number of observations in a given year. """
     start_time = time.time()
     obs = sc.textFile("/user/schiefjm/weather/gsod/" + str(year))
+    obs = obs.filter(lambda line: "STN" not in line)
     the_count = obs.count()
     end_time = time.time() - start_time
-
-    # print("There were {:,} observations in {}.".format(the_count, year))
-    # print("It took {:.2f} seconds to count them.".format(end_time))
 
     return year, the_count, round(end_time, 3)
 
@@ -44,6 +38,7 @@ def obs_count_test(num_tests, years):
     return all_results
 
 def generate_test_results(all_results):
+    print(the_head)
     print("Year\tObs\tTests\tMin\tMax\tAvg")
     print("*" * 45)
     for result in all_results:
@@ -59,5 +54,7 @@ def generate_test_results(all_results):
                       max(run_times),
                       sum(run_times)/num_tests))
 
-generate_test_results(obs_count_test(100, [1930, 1932, 1934, 1940, 1950]))
-
+generate_test_results(obs_count_test(50, [year for year in range(1929, 1940)]))
+generate_test_results(obs_count_test(10, [year for year in range(1940, 1950)]))
+generate_test_results(obs_count_test(5, [year for year in range(1950, 1960)]))
+generate_test_results(obs_count_test(1, [year for year in range(1960, 1970)]))
