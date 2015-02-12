@@ -20,3 +20,28 @@ entire data set is approximately 17 GB and was small enough to be duplicated.
 The first copy is on the regular file system and the second data set was
 pushed to HDFS from the regular file system.
 
+== Observation Fields
+
+The following fields are the position number and what the value represents.
+
+.Observation Fields
+[width="40%",frame="topbot",options="header,footer"]
+|======================
+|Column # |Value Name
+|0        |
+|1        |
+|2        |
+|3        |
+|3        |
+|3        |
+|3        |
+|3        |
+|3        |
+|3        |
+|3        |
+|3        |
+|3        |
+|3        |
+|3        |
+|3        |
+|======================
