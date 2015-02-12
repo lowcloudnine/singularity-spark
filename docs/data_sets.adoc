@@ -28,20 +28,26 @@ The following fields are the position number and what the value represents.
 [width="40%",frame="topbot",options="header,footer"]
 |======================
 |Column # |Value Name
-|0        |
-|1        |
-|2        |
-|3        |
-|3        |
-|3        |
-|3        |
-|3        |
-|3        |
-|3        |
-|3        |
-|3        |
-|3        |
-|3        |
-|3        |
-|3        |
+|0        |STN---
+|1        |WBAN
+|2        |YEARMODA
+|3        |Mean Temp
+|4        |# of Obs
+|5        |Mean DewPt
+|6        |# of Obs
+|7        |SLP
+|8        |# of Obs
+|9        |STP
+|10       |# of Obs
+|11       |Visibility
+|12       |# of Obs
+|13       |Wind Speed
+|14       |# of Obs
+|15       |Max Wind Spd
+|16       |Gust
+|17       |Max Temp
+|18       |Min Temp
+|19       |Precipitation
+|20       |Snow Depth
+|21       |frshtt
 |======================
