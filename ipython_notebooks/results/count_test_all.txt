@@ -1,0 +1,168 @@
+
+Test Name                   count_test.py
+Machine            c1-master.ec2.internal
+Date                          12 Feb 2015
+Start Time                       17:15:56
+
+Spark Configuration
+========================================================================
+spark.executor.extraLibraryPath
+    /opt/cloudera/parcels/CDH-5.3.1- .. 5.3.1.p0.5/lib/hadoop/lib/native
+spark.executor.memory
+    2g
+spark.serializer.objectStreamReset
+    100
+spark.driver.extraLibraryPath
+    /opt/cloudera/parcels/CDH-5.3.1- .. 5.3.1.p0.5/lib/hadoop/lib/native
+spark.executor.instances
+    8
+spark.yarn.historyServer.address
+    http://c1-master.ec2.internal:18088
+spark.eventLog.enabled
+    true
+spark.yarn.dist.files
+    file:/home/schiefjm/projects/sin .. _notebooks/tests/./count_test.py
+spark.cores.max
+    8
+spark.rdd.compress
+    True
+spark.app.name
+    count_test.py
+spark.eventLog.dir
+    hdfs://c1-master.ec2.internal:8020/user/spark/applicationHistory
+spark.master
+    yarn-client
+========================================================================
+
+
+Year	Obs	Tests	Min	Max	Avg
+*********************************************
+1929	2,081	20	0.36	2.63	0.54	
+1930	7,285	20	0.33	2.60	0.59	
+1931	9,913	20	0.33	1.43	0.41	
+1932	10,931	20	0.39	0.49	0.41	
+1933	18,248	20	0.64	0.70	0.67	
+1934	20,916	20	0.74	0.83	0.77	
+1935	27,357	20	0.92	1.00	0.96	
+1936	51,360	20	1.66	1.76	1.72	
+1937	84,913	20	2.00	2.09	2.04	
+1938	51,912	20	1.23	1.29	1.25	
+1939	65,650	20	1.64	1.72	1.67	
+
+Year	Obs	Tests	Min	Max	Avg
+*********************************************
+1940	90,956	10	1.93	2.01	1.98	
+1941	111,750	10	2.37	2.58	2.43	
+1942	142,621	10	3.39	3.63	3.45	
+1943	224,853	10	4.97	5.11	5.04	
+1944	246,069	10	5.02	5.42	5.20	
+1945	262,266	10	5.93	6.21	6.06	
+1946	144,144	10	3.79	3.99	3.86	
+1947	146,456	10	2.96	3.08	3.04	
+1948	296,249	10	7.19	7.36	7.26	
+1949	442,594	10	9.36	10.20	9.48	
+
+Year	Obs	Tests	Min	Max	Avg
+*********************************************
+1950	491,354	5	9.74	9.85	9.81	
+1951	499,755	5	9.98	10.13	10.06	
+1952	564,093	5	10.86	10.99	10.92	
+1953	606,373	5	12.98	13.13	13.04	
+1954	646,122	5	13.52	13.65	13.58	
+1955	383,594	5	10.14	10.28	10.21	
+1956	642,397	5	15.62	16.13	15.78	
+1957	811,241	5	20.06	20.27	20.12	
+1958	878,959	5	19.08	19.83	19.25	
+1959	850,735	5	23.02	23.75	23.31	
+
+Year	Obs	Tests	Min	Max	Avg
+*********************************************
+1960	883,954	2	21.25	21.28	21.26	
+1961	921,989	2	22.25	22.41	22.33	
+1962	941,131	2	21.62	22.31	21.97	
+1963	927,917	2	20.75	20.86	20.81	
+1964	803,683	2	14.56	14.74	14.65	
+1965	633,814	2	12.21	12.34	12.27	
+1966	651,765	2	11.81	11.93	11.87	
+1967	654,240	2	11.84	11.92	11.88	
+1968	600,678	2	10.66	11.07	10.87	
+1969	884,147	2	16.17	16.22	16.20	
+
+Year	Obs	Tests	Min	Max	Avg
+*********************************************
+1970	866,865	2	15.69	15.74	15.71	
+1971	486,185	2	14.00	14.03	14.02	
+1972	201,220	2	3.44	3.47	3.45	
+1973	2,038,672	2	44.92	46.65	45.79	
+1974	2,081,063	2	46.08	46.48	46.28	
+1975	2,190,974	2	48.28	55.39	51.84	
+1976	2,259,142	2	60.29	61.01	60.65	
+1977	2,253,619	2	68.90	73.14	71.02	
+1978	2,284,247	2	47.65	49.28	48.47	
+1979	2,296,110	2	48.68	49.79	49.23	
+
+Year	Obs	Tests	Min	Max	Avg
+*********************************************
+1980	2,266,801	1	55.75	55.75	55.75	
+1981	2,305,612	1	67.54	67.54	67.54	
+1982	2,153,695	1	71.09	71.09	71.09	
+1983	2,249,696	1	76.07	76.07	76.07	
+1984	2,341,322	1	89.61	89.61	89.61	
+1985	2,386,295	1	117.46	117.46	117.46	
+1986	2,436,910	1	62.73	62.73	62.73	
+1987	2,494,826	1	74.96	74.96	74.96	
+1988	2,530,077	1	83.46	83.46	83.46	
+1989	2,539,734	1	105.00	105.00	105.00	
+
+Traceback (most recent call last):
+  File "/home/schiefjm/projects/singularity-spark/ipython_notebooks/tests/./count_test.py", line 64, in <module>
+    generate_test_results(obs_count_test(1, [year for year in range(1990, 2000)]))
+  File "/home/schiefjm/projects/singularity-spark/ipython_notebooks/tests/./count_test.py", line 35, in obs_count_test
+    results.append(obs_count(year))
+  File "/home/schiefjm/projects/singularity-spark/ipython_notebooks/tests/./count_test.py", line 25, in obs_count
+    the_count = obs.count()
+  File "/opt/cloudera/parcels/CDH-5.3.1-1.cdh5.3.1.p0.5/lib/spark/python/pyspark/rdd.py", line 819, in count
+    return self.mapPartitions(lambda i: [sum(1 for _ in i)]).sum()
+  File "/opt/cloudera/parcels/CDH-5.3.1-1.cdh5.3.1.p0.5/lib/spark/python/pyspark/rdd.py", line 810, in sum
+    return self.mapPartitions(lambda x: [sum(x)]).reduce(operator.add)
+  File "/opt/cloudera/parcels/CDH-5.3.1-1.cdh5.3.1.p0.5/lib/spark/python/pyspark/rdd.py", line 715, in reduce
+    vals = self.mapPartitions(func).collect()
+  File "/opt/cloudera/parcels/CDH-5.3.1-1.cdh5.3.1.p0.5/lib/spark/python/pyspark/rdd.py", line 676, in collect
+    bytesInJava = self._jrdd.collect().iterator()
+  File "/opt/cloudera/parcels/CDH-5.3.1-1.cdh5.3.1.p0.5/lib/spark/python/lib/py4j-0.8.2.1-src.zip/py4j/java_gateway.py", line 538, in __call__
+  File "/opt/cloudera/parcels/CDH-5.3.1-1.cdh5.3.1.p0.5/lib/spark/python/lib/py4j-0.8.2.1-src.zip/py4j/protocol.py", line 300, in get_return_value
+py4j.protocol.Py4JJavaError: An error occurred while calling o4265.collect.
+: java.lang.OutOfMemoryError: GC overhead limit exceeded
+	at com.google.protobuf.LiteralByteString.toString(LiteralByteString.java:148)
+	at com.google.protobuf.ByteString.toStringUtf8(ByteString.java:572)
+	at com.google.protobuf.LazyStringArrayList.get(LazyStringArrayList.java:92)
+	at com.google.protobuf.LazyStringArrayList.get(LazyStringArrayList.java:64)
+	at java.util.AbstractList$Itr.next(AbstractList.java:358)
+	at com.google.protobuf.UnmodifiableLazyStringList$2.next(UnmodifiableLazyStringList.java:138)
+	at com.google.protobuf.UnmodifiableLazyStringList$2.next(UnmodifiableLazyStringList.java:128)
+	at java.util.AbstractCollection.toArray(AbstractCollection.java:195)
+	at org.apache.hadoop.hdfs.protocolPB.PBHelper.convert(PBHelper.java:740)
+	at org.apache.hadoop.hdfs.protocolPB.PBHelper.convert(PBHelper.java:1189)
+	at org.apache.hadoop.hdfs.protocolPB.PBHelper.convert(PBHelper.java:1325)
+	at org.apache.hadoop.hdfs.protocolPB.PBHelper.convert(PBHelper.java:1433)
+	at org.apache.hadoop.hdfs.protocolPB.PBHelper.convert(PBHelper.java:1442)
+	at org.apache.hadoop.hdfs.protocolPB.ClientNamenodeProtocolTranslatorPB.getListing(ClientNamenodeProtocolTranslatorPB.java:549)
+	at sun.reflect.GeneratedMethodAccessor36.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invokeMethod(RetryInvocationHandler.java:187)
+	at org.apache.hadoop.io.retry.RetryInvocationHandler.invoke(RetryInvocationHandler.java:102)
+	at com.sun.proxy.$Proxy13.getListing(Unknown Source)
+	at org.apache.hadoop.hdfs.DFSClient.listPaths(DFSClient.java:1902)
+	at org.apache.hadoop.hdfs.DistributedFileSystem$15.hasNextNoFilter(DistributedFileSystem.java:770)
+	at org.apache.hadoop.hdfs.DistributedFileSystem$15.hasNext(DistributedFileSystem.java:751)
+	at org.apache.hadoop.mapred.FileInputFormat.singleThreadedListStatus(FileInputFormat.java:267)
+	at org.apache.hadoop.mapred.FileInputFormat.listStatus(FileInputFormat.java:228)
+	at org.apache.hadoop.mapred.FileInputFormat.getSplits(FileInputFormat.java:313)
+	at org.apache.spark.rdd.HadoopRDD.getPartitions(HadoopRDD.scala:201)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:205)
+	at org.apache.spark.rdd.RDD$$anonfun$partitions$2.apply(RDD.scala:203)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.rdd.RDD.partitions(RDD.scala:203)
+	at org.apache.spark.rdd.MappedRDD.getPartitions(MappedRDD.scala:28)
+

@@ -1,8 +1,13 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
+
 import time
-import initialize_spark
-sc = initialize_spark.get_sc()
+import libs.initialize_spark
+sc = libs.initialize_spark.get_sc()
+
+import libs.header
+the_header = libs.header.create_header(sc)
 
 # Since Spark is being run local no need to specify a HDFS server.
 def global_summary(year):
@@ -58,6 +63,8 @@ def generate_test_results(all_results):
                       min(run_times),
                       max(run_times),
                       sum(run_times)/num_tests))
+    print("")
 
-generate_test_results(global_summary_test(10, [1930, 1932, 1934, 1940, 1950]))
+print(the_header)
+generate_test_results(global_summary_test(10, [year for year in range(1929, 1940)]))
 
