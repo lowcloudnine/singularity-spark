@@ -11,11 +11,11 @@ import cPickle as pickle
 import random
 import time
 
-import lib.initialize_spark
-sc = lib.initialize_spark.get_sc()
+import libs.initialize_spark
+sc = libs.initialize_spark.get_sc()
 
-import lib.header
-the_head = lib.header.create_header(sc)
+import libs.header
+the_header = libs.header.create_header(sc)
 
 def obs_count(year):
     """ Returns the number of observations in a given year. """
@@ -38,7 +38,6 @@ def obs_count_test(num_tests, years):
     return all_results
 
 def generate_test_results(all_results):
-    print(the_head)
     print("Year\tObs\tTests\tMin\tMax\tAvg")
     print("*" * 45)
     for result in all_results:
@@ -53,8 +52,15 @@ def generate_test_results(all_results):
                       min(run_times),
                       max(run_times),
                       sum(run_times)/num_tests))
+    print()
 
-generate_test_results(obs_count_test(50, [year for year in range(1929, 1940)]))
+print(the_header)
+generate_test_results(obs_count_test(20, [year for year in range(1929, 1940)]))
 generate_test_results(obs_count_test(10, [year for year in range(1940, 1950)]))
 generate_test_results(obs_count_test(5, [year for year in range(1950, 1960)]))
-generate_test_results(obs_count_test(1, [year for year in range(1960, 1970)]))
+generate_test_results(obs_count_test(2, [year for year in range(1960, 1970)]))
+generate_test_results(obs_count_test(2, [year for year in range(1970, 1980)]))
+generate_test_results(obs_count_test(1, [year for year in range(1980, 1990)]))
+generate_test_results(obs_count_test(1, [year for year in range(1990, 2000)]))
+generate_test_results(obs_count_test(1, [year for year in range(2000, 2010)]))
+
