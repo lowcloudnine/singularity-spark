@@ -1,6 +1,0 @@
-= Singularity New Tool Testing/Integration
-
-This is a relatively simple project to stand up and test various tools for use
-with Singularity.
-
-

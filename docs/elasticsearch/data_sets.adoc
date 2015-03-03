@@ -1,0 +1,53 @@
+= Data Sets
+
+== Summary
+
+This document will attempt provide links and pointers to the meta data of
+the data sets being used for this portion of the Singularity project.  
+
+== GSOD
+
+The first data set used is the Global Summary of the Day (GSOD) provided by the
+National Climatic Data Center (NCDC).  This data set is available on 
+link:http://aws.amazon.com/datasets/2759[Amazon's S3]
+as a mountable image which was collected, transformed and uploaded by
+infochimps.org.
+
+The data is strictly ASCII text files in columns with spaces in between.  Each
+file has a header that starts with "STN---" and describes most of the columns.
+More details are available in the readme.txt that comes with the data.  The 
+entire data set is approximately 17 GB and was small enough to be duplicated.  
+The first copy is on the regular file system and the second data set was
+pushed to HDFS from the regular file system.
+
+== Observation Fields
+
+The following fields are the position number and what the value represents.
+
+.Observation Fields
+[width="40%",frame="topbot",options="header,footer"]
+|======================
+|Column # |Value Name
+|0        |STN---
+|1        |WBAN
+|2        |YEARMODA
+|3        |Mean Temp
+|4        |# of Obs
+|5        |Mean DewPt
+|6        |# of Obs
+|7        |SLP
+|8        |# of Obs
+|9        |STP
+|10       |# of Obs
+|11       |Visibility
+|12       |# of Obs
+|13       |Wind Speed
+|14       |# of Obs
+|15       |Max Wind Spd
+|16       |Gust
+|17       |Max Temp
+|18       |Min Temp
+|19       |Precipitation
+|20       |Snow Depth
+|21       |frshtt
+|======================
