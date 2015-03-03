@@ -8,14 +8,14 @@ either one of those will result in nicely rendered documents without a
 need to convert formats.
 
 #### Spark
-* [Main Page](index.adoc)
-* [IPython Server Setup](ipython_setup.adoc)
-* [IPython Server Post Setup](ipython_post_setup.adoc)
-* [Software Versions](sw_inventory.adoc)
-* [Data Sets](data_sets.adoc)
+* [Main Page](spark/index.adoc)
+* [IPython Server Setup](spark/ipython_setup.adoc)
+* [IPython Server Post Setup](spark/ipython_post_setup.adoc)
+* [Software Versions](spark/sw_inventory.adoc)
+* [Data Sets](spark/data_sets.adoc)
 
 #### Elasticsearch
-* [Main Page](index.adoc)
-* [Data Insertion](insert_data.adoc)
-* [Data Retrieval] (retrieve_data.adoc)
+* [Main Page](elasticsearch/index.adoc)
+* [Data Insertion](elasticsearch/insert_data.adoc)
+* [Data Retrieval] (elasticsearch/retrieve_data.adoc)
 
