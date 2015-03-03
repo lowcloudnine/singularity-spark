@@ -16,6 +16,7 @@ need to convert formats.
 
 #### Elasticsearch
 * [Main Page](elasticsearch/index.adoc)
-* [Data Insertion](elasticsearch/insert_data.adoc)
-* [Data Retrieval] (elasticsearch/retrieve_data.adoc)
-
+* [Set Up & Initial connection](es_setup.adoc)
+* [cURL Examples](es_curl.adoc)
+* [Python Examples](es_python.adoc)
+* [Data Sets](data_sets.adoc)
