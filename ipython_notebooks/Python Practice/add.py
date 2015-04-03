@@ -4,7 +4,8 @@
 Purpose
 -------
 
-Problem 19 from http://anandology.com/python-practice-book/getting-started.html
+Section 1. Problem 19 
+from http://anandology.com/python-practice-book/getting-started.html
 
 """
 # -----------------------------------------------------------------------------
