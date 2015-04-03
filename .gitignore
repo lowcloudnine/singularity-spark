@@ -56,3 +56,4 @@ target/
 # IPython Notebook
 .ipynb_checkpoints/
 Untitled*.ipynb
+ipython_notebooks/pysal_examples/

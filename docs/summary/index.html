@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  
+  "http://www.w3.org/TR/html4/loose.dtd">  
+<html > 
+<head><title>Python/Singularity Integration</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)"> 
+<!-- html --> 
+<meta name="src" content="summary.tex"> 
+<meta name="date" content="2015-03-04 19:08:00"> 
+<link rel="stylesheet" type="text/css" href="summary.css"> 
+</head><body 
+>
+   <div class="maketitle">
+
+
+
+<h2 class="titleHead">Python/Singularity Integration</h2>
+<div class="author" ><span 
+class="cmr-12x-x-120">Jon Schiefelbein</span></div>
+<br />
+<div class="date" ><span 
+class="cmr-12x-x-120">March 4, 2015</span></div>
+   </div>
+<div class="center" 
+>
+<!--l. 14--><p class="noindent" >
+<!--l. 14--><p class="noindent" ><span 
+class="cmbx-10x-x-109">Abstract</span></div>
+      <!--l. 14--><p class="indent" >    <span 
+class="cmr-10x-x-109">This is a summary of using Python with Spark, ElasticSearch and Accumulo.</span>
+         <h3 class="sectionHead"><span class="titlemark"><span 
+class="cmr-10x-x-109">1   </span></span> <a 
+ id="x1-10001"></a><span 
+class="cmr-10x-x-109">Python</span></h3>
+      <!--l. 18--><p class="noindent" ><span 
+class="cmr-10x-x-109">All exploration, tests and code was written using Continuum Analytic&#8217;s Anaconda Python</span>
+      <span 
+class="cmr-10x-x-109">distribution. This distribution was used as it has a simple installation, does not require administrative</span>
+      <span 
+class="cmr-10x-x-109">privileges and includes by default all the needed Python libraries. Python is rapidly becoming the</span>
+      <span 
+class="cmr-10x-x-109">lingua franca of data science. Python is one of only three languages able to interface with</span>
+      <span 
+class="cmr-10x-x-109">Apache Spark. Spark is written in Scala and as Scala is a JVM language Java is the other</span>
+      <span 
+class="cmr-10x-x-109">language. Python also has &#8221;mature&#8221; libraries for interfacing with ElasticSearch and</span>
+      <span 
+class="cmr-10x-x-109">Accmulo.</span>
+      <!--l. 28--><p class="noindent" >
+         <h3 class="sectionHead"><span class="titlemark"><span 
+class="cmr-10x-x-109">2   </span></span> <a 
+ id="x1-20002"></a><span 
+class="cmr-10x-x-109">PySpark</span></h3>
+      <!--l. 29--><p class="noindent" ><span 
+class="cmr-10x-x-109">PySpark, while initially a second class tool in versions of Spark prior to version 1, has become a</span>
+      <span 
+class="cmr-10x-x-109">viable, reliable and scalable tool for interacting with large data sets on a Hadoop cluster. My</span>
+      <span 
+class="cmr-10x-x-109">experiments with PySpark showed an initial learning curve as PySpark uses a functional programming</span>
+      <span 
+class="cmr-10x-x-109">style. Once the learning curve was overcome the resulting code was readable and compact with</span>
+      <span 
+class="cmr-10x-x-109">favorable performance on a 5 node Hadoop cluster. Furthermore the syntax between</span>
+      <span 
+class="cmr-10x-x-109">Python for Spark and Scala for Spark is similar enough even fairly novice Engineers</span>
+      <span 
+class="cmr-10x-x-109">or Data Scientists could easily translate from one to the other. This makes learning</span>
+      <span 
+class="cmr-10x-x-109">Spark easier as any documentation for Scala can be used to learn PySpark and vice</span>
+      <span 
+class="cmr-10x-x-109">versa.</span>
+      <!--l. 40--><p class="indent" >     <span 
+class="cmr-10x-x-109">No time was spent measuring performance differences between Spark and PySpark. However,</span>
+      <span 
+class="cmr-10x-x-109">PySpark translates all Python code to Java using a library called py4j. Given this I suspect</span>
+      <span 
+class="cmr-10x-x-109">performance differences would be marginal if they exist at all. Performance on data sets with tens to</span>
+      <span 
+class="cmr-10x-x-109">hundreds of thousands of points was acceptable. Data sets with millions of points was easily done in</span>
+      <span 
+class="cmr-10x-x-109">the 10 to 20 second range. It was when data sets with points exceeding 5 million was used</span>
+      <span 
+class="cmr-10x-x-109">that performance exceed what would be a reasonable time for web users to wait for a</span>
+      <span 
+class="cmr-10x-x-109">response.</span>
+      <!--l. 49--><p class="noindent" >
+         <h3 class="sectionHead"><span class="titlemark"><span 
+class="cmr-10x-x-109">3   </span></span> <a 
+ id="x1-30003"></a><span 
+class="cmr-10x-x-109">ElasticSearch</span></h3>
+      <!--l. 50--><p class="noindent" ><span 
+class="cmr-10x-x-109">Where Spark excels at data retrieval and calculations Elastisearch excels at retrieving specific sets</span>
+      <span 
+class="cmr-10x-x-109">of data. If you have a large data set, i.e. all of the weather observations for a 80 year</span>
+      <span 
+class="cmr-10x-x-109">period and wish to view only the observations for 1977, elasticsearch should be your</span>
+      <span 
+class="cmr-10x-x-109">tool of choice. There is still an initial learning curve for elasticsearch. One interesting</span>
+      <span 
+class="cmr-10x-x-109">note is it is easy to insert date into elasticsearch than to retrieve it. Once one learns</span>
+      <span 
+class="cmr-10x-x-109">how to make simple queries the ability to find specific points of data very quickly is</span>
+      <span 
+class="cmr-10x-x-109">impressive. The next phase of my research for elasticsearc is to retrieve results using</span>
+      <span 
+class="cmr-10x-x-109">elasticsearch and then use Spark to calculate results. Python is an ideal glue language for</span>
+      <span 
+class="cmr-10x-x-109">such a task and I suspect the integration of the two technologies will be particularly</span>
+      <span 
+class="cmr-10x-x-109">powerful.</span>
+      <!--l. 63--><p class="indent" >     <span 
+class="cmr-10x-x-109">Elasticsearch performance for retrieval of tens to tens of thousands of data points is very good.</span>
+      <span 
+class="cmr-10x-x-109">Like Spark performance on a 5 node cluster becomes an issue once more than 5 million data points are</span>
+      <span 
+class="cmr-10x-x-109">needed in bulk. Elasticsearch has streaming methods for this and I suspect the next stage of</span>
+      <span 
+class="cmr-10x-x-109">experiments will demonstrate an ability to retrieve data at speeds acceptable for use in web</span>
+      <span 
+class="cmr-10x-x-109">applications such as Singularity.</span>
+      <!--l. 70--><p class="noindent" >
+         <h3 class="sectionHead"><span class="titlemark"><span 
+class="cmr-10x-x-109">4   </span></span> <a 
+ id="x1-40004"></a><span 
+class="cmr-10x-x-109">Accumulo</span></h3>
+      <!--l. 71--><p class="noindent" ><span 
+class="cmr-10x-x-109">I have not explored using Accumulo with Python in any depth. Initial research shows using it with the</span>
+      <span 
+class="cmr-10x-x-109">pyaccumulo library will be another extremely power tool with possibly a lower learning curve than</span>
+      <span 
+class="cmr-10x-x-109">elasticseach with database like terminology of tables and rows. Combined with GeoWave&#8217;s addition of</span>
+      <span 
+class="cmr-10x-x-109">geo-referencing and Python&#8217;s ability to interact with all the other tools including arcpy this should be</span>
+      <span 
+class="cmr-10x-x-109">the next area of exploration.</span>
+          
+</body></html> 
+
+
+
