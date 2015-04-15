@@ -36,11 +36,15 @@ def use_argparse():
 
 def use_sys_args():
     """ Parse the command line arguments using sys.args. """
-    the_sum = 0
-    for arg in sys.argv[1:]: # sys.argv[0] is the name of the script
-        the_sum += int(arg)
-        
-    return the_sum 
+    # There are 2 possible ways to achieve the result in one line.
+    # One using a map:
+    # return sum(list(map(int, sys.argv[1:])))
+    # or using a list comprehension.
+    return sum([int(i) for i in sys.argv[1:]])
+
+    # per http://stackoverflow.com/questions/1247486/python-list-comprehension-vs-map
+    # list comprehesion is considered more pythonic but if lambdas are not used then
+    # map will be microscopically faster.
 
 def main():
     """ Runs the script as a stand alone application. """
