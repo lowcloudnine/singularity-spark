@@ -12,8 +12,8 @@ account, for example:
 
 * Some common configurations for git, I create a shell script for mine:
 
-	git config --global user.name "first last"
-	git config --global user.email "you.email@domain.net"
-	git config --global help.autocorrect true
-	git config --global credential.helper 'cache --timeout=300'
+	git config --global user.name "first last"   
+	git config --global user.email "you.email@domain.net"   
+	git config --global help.autocorrect true   
+	git config --global credential.helper 'cache --timeout=300'   
 
