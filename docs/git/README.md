@@ -10,10 +10,10 @@ account, for example:
 
 	git clone https://username@github.com/username/projectname.git
 
-* Some common configurations for git, I create a shell script for mine:
+* Some common configurations for git, I created a shell script for mine:
 
 	git config --global user.name "first last"   
 	git config --global user.email "you.email@domain.net"   
 	git config --global help.autocorrect true   
-	git config --global credential.helper 'cache --timeout=300'   
+	git config --global credential.helper 'cache --timeout=300' # doesn't seem to work  
 
